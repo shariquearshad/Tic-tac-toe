@@ -16,8 +16,8 @@ export default function Choice(props){
     return (
         <div className="choice">
            <div className="imageContainer">
-               <div className={`x ${move==="X"?"selected":""}`}  onClick={()=>selectedMove("X")} >X</div>
-               <div className={`o ${move==="O"?"selected":""}`} onClick={()=>selectedMove("O")}>O</div></div>
+               <div className="x"onClick={()=>selectedMove("X")} >X</div>
+               <div className="o" onClick={()=>selectedMove("O")}>O</div></div>
            <div className="optionHeading">choose your play mode</div>
            <div className="buttonContainer">
                <Link to="/side">
@@ -27,7 +27,7 @@ export default function Choice(props){
              <button  >With a friend</button>
              </Link>
            </div>
-           
+
            
                
         </div>

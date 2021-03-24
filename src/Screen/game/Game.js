@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; 
+import React from 'react'; 
 import reactDom from 'react-dom';
 import Board from '../../Board/Board';
 import {Link} from 'react-router-dom';
@@ -26,62 +26,56 @@ export default function Game({name1="sharique",name2="computers",firstmove}){
     }
     const handelClick=(x,y)=>{
         const newboard=[...useboard]
-        let newCount=count;
-        console.log("count is "+newCount)
+        
     
         if(newboard[x][y]===""){
-           if (newCount%2===0){
-              newboard[x][y]=moves[newCount%2];
-              console.log("Count afterclick is"+ (parseInt(newCount)+1))
-              //setCount(newCount+1)
+           if (count%2===0){
+              newboard[x][y]=moves[count%2];
             
               console.log("x is executed button clicked is"+x+y)
            }
            else{
-              newboard[x][y]=moves[newCount%2];
+              newboard[x][y]=moves[count%2];
               console.log("y is executed button clicked is"+x+y)
-             // setCount(newCount+1)
            }
            checkWinner()
-          // console.log(count);
-           newCount=count+1;
-           
-           //console.log(newCount);
+           console.log(count);
+           let newCount=count+1;
+           setCount(newCount)
+           console.log(newCount);
            modifyAiBoard(x,y);
            setBoard(newboard);
            if (newCount===9)
               setDraw(true);
-            //  console.log("the count is "+ newCount);
+              console.log("the count is "+ newCount);
        
     
            
            if(players[newCount%2]==="computer"){//control goes to ai;
                console.log("control goes to ai")
             
-              const executeAi=setTimeout(handelAiBoard(),3000)
+              handelAiBoard()
                
             }
     
         }
         
     }
-
     const checkWinner=()=>{// to check winner
-       // console.log("cheking winner");
-    
-       for(let i=0;i<3;i++){// cheking winner for x axis
+        console.log("cheking winner");
+        for(let i=0;i<3;i++){// cheking winner for x axis
             let s1=""
             for(let j=0;j<3;j++){
                s1+=useboard[i][j].toString(); 
                //s2+=useboard[j][i].toString()
                 
             }
-           // console.log(s1)
+            console.log(s1)
             if(s1==="XXX" || s1==="OOO"){
             setWinner(true)
             
              }
-            // console.log(winner);
+             console.log(winner);
         }
         for(let j=0;j<3;j++){// checking winner for y axis
             let s1="";
@@ -108,29 +102,27 @@ export default function Game({name1="sharique",name2="computers",firstmove}){
          }
     }
     const modifyAiBoard=(x,y)=>{ 
-        //console.log("it should execute after set button clicked")  //modify ai board
+        console.log("it should execute after set button clicked")  //modify ai board
        // let NewAiBoard=[...aiBoard];
         let stringvalue=x.toString()+y;
         console.log(stringvalue+" "+typeof(stringvalue));
         let newAIBoard=aiBoard.filter(el=>el!==stringvalue);
-        console.log("board after click "+newAIBoard);
+        console.log(newAIBoard);
         setAiBoard(newAIBoard);
        // setAiBoard(NewAiBoard);
        //aiBoard=NewAiBoard
     }
     
     const handelAiBoard=()=>{
-        console.log("it is executed")
        
        let randomno=Math.round(Math.random()*(aiBoard.length-0)+0);
        
-      // console.log("controls goes to aiboard");
+       console.log("controls goes to aiboard");
        let value=aiBoard[randomno];
-       //console.log(value)
-       //console.log(typeof(value));
+       console.log(value)
+       console.log(typeof(value));
       let valuex=parseInt(value.charAt(0));
       let valuey=parseInt(value.charAt(1));
-      console.log("ai value is "+valuex+valuey)
       handelClick(valuex,valuey);
      // const newboard=[...useboard];
       //newboard[valuex][valuey]='O';
@@ -164,7 +156,7 @@ export default function Game({name1="sharique",name2="computers",firstmove}){
                  <div>congratulation {players[(count-1)%2]} won</div>
                  <div class="buttonContainer">
                      <button className="button" onClick={playAgain}>play again</button>
-                     <button ><Link to='/'>exit</Link> </button>
+                     <button><Link to='/'>exit</Link> </button>
                  </div>
             </div>)}
              {draw && <div> game is drawm</div>}

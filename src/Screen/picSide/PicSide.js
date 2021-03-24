@@ -19,7 +19,7 @@ export default function PicSide(props){
     return(
         <>
 
-        <div className="gameContainer">
+        <div className="card">
         <div className="optionHeading">choose your play mode</div>
         <div className="moves">
         <div className={`x ${move==="X"?"selected":""}`}  onClick={()=>selectedMove("X")} >X</div>
@@ -27,7 +27,7 @@ export default function PicSide(props){
         </div>
         <div className="players">
           <input placeholder={names[1]===""?"Enter first player name":"enter your name"} onChange={handelname1}/> 
-          {names[1]==="" && <input placeholder="Enter second player name" onChange={handelname2}/>}
+          {names[1]==="" && <input  placeholder="Enter second player name" onChange={handelname2}/>}
 
         </div>
     

@@ -15,7 +15,7 @@ export default function PicSide(props){
 
     }
     const [move,selectedMove]=React.useState("X")
-    const firstmove=()=>{props.handelClick(move,copyname)}
+    const firstmove=()=>{props.handelClick(move,copyname)} 
     return(
         <>
 

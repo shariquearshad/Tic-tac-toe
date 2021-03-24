@@ -1,0 +1,62 @@
+.borderInner{
+    border-right: 3px solid rgb(192, 192, 192);
+    border-left: 3px solid rgb(192, 192, 192);
+}
+.column{
+    display: flex;
+}
+.cells{
+    
+    display: table-cell;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-around;
+
+    height: 130px;
+    width: 130px;
+    align-items: center;
+    
+    vertical-align: middle;
+}
+.x {
+  transition: 0.5s;
+  cursor: pointer;
+    color: #1e31db; /* fallback for old browsers */
+    color: -webkit-linear-gradient(
+      to right,
+      #56a7e9,
+      #001cb8
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    color: linear-gradient(
+      to right,
+      #37c6ff,
+      #0b1e53
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    font-family: "Times New Roman", Times, monospace;
+  
+    text-shadow: 0px 4px 5px rgb(30, 91, 204);
+    font-size: 100px;
+    font-weight: bolder;
+  }
+.o {
+  transition: 0.5s;
+    cursor: pointer;
+    color: #ff8008; /* fallback for old browsers */
+    color: -webkit-linear-gradient(
+      to right,
+      #ffc837,
+      #ddcbba
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    color: linear-gradient(
+      to right,
+      #ffc837,
+      #e2b891
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    font-family: "Lucida Console", "Courier New", monospace;
+  
+    text-shadow: 0px 4px 2px rgb(224, 165, 93);
+    font-size: 100px;
+    font-weight: bolder;
+  }

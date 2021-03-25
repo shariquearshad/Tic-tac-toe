@@ -3,7 +3,8 @@ import reactDom from 'react-dom';
 import Board from '../../Board/Board';
 import {Link} from 'react-router-dom';
 import './game.css';
-export default function Game({name1="sharique",name2="computers",firstmove}){
+//import { PinDropSharp } from '@material-ui/icons';
+export default function Game({handelExit,name1="sharique",name2="computers",firstmove}){
     var board=[["","",""],["","",""],["","",""]];
    // console.log(board);)
    const players=[name1,name2];
@@ -23,6 +24,14 @@ export default function Game({name1="sharique",name2="computers",firstmove}){
         let newScore=[...score];
         newScore[(count-1)%2]++;
         setScore(newScore)
+    
+    }
+    const handeldraw=()=>{
+        setBoard(board);
+        setCount(0)
+        setWinner(false)
+        setDraw(false)
+    
     }
     const handelClick=(x,y)=>{
         const newboard=[...useboard]
@@ -143,7 +152,7 @@ export default function Game({name1="sharique",name2="computers",firstmove}){
 
      return(
          <div className="main">
-         <div className="gameContainer">
+         <div className="card">
              <div className="scoreContainer">
              <div className={`${winner?"blur":""} ${count%2===1?"blur":""}`}>{players[0]}</div>
              <div className="score">{score[0]} - {score[1]}</div>
@@ -159,7 +168,14 @@ export default function Game({name1="sharique",name2="computers",firstmove}){
                      <button><Link to='/'>exit</Link> </button>
                  </div>
             </div>)}
-             {draw && <div> game is drawm</div>}
+             {draw && (<div className="boardContainer">
+                 <div>draw</div>
+                 <div class="buttonContainer">
+                     <button className="button" onClick={handeldraw}>play again</button>
+                     <button onclick={()=>handelExit}><Link to='/'>exit</Link> </button>
+                 </div>
+            </div>)}
+             
              
          </div>
          </div>

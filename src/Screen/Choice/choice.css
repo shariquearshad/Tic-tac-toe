@@ -11,6 +11,11 @@
     background-color: #f0f4f7;
     padding: 20px 0px;
 }
+input{
+    width: 200px;
+    height: 20px;
+    border-radius: 8px
+}
 
 .imageContainer{
     height: 100px;
@@ -35,6 +40,8 @@ button{
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
+    -webkit-box-shadow: 5px 5px 15px 1px rgba(213,221,255,0.92); 
+box-shadow: 5px 5px 15px 1px rgba(213,221,255,0.92);
       
 }
 button span:after {
@@ -47,11 +54,14 @@ button span:after {
     padding-right: 25px;
   }
   .selected{
-    width: 100px;
+    width: 200px;
     border-radius: 8px;
     background: #f0f4f7;
     box-shadow: inset 9px 9px 19px #c0c3c6,
                 inset -9px -9px 19px #ffffff;
+  }
+  .size{
+      font-size: 200px;
   }
   
 
@@ -65,8 +75,10 @@ button span:after {
 }
 .buttonContainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    height: 100px;
-    justify-content: space-between;
+    height: 150px;
+    width: 300px;
+    justify-content: space-evenly;
+    align-content: center;
 }

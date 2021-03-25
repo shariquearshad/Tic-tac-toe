@@ -21,9 +21,9 @@ export default function PicSide(props){
 
         <div className="card">
         <div className="optionHeading">choose your play mode</div>
-        <div className="moves">
-        <div className={`x ${move==="X"?"selected":""}`}  onClick={()=>selectedMove("X")} >X</div>
-        <div className={`o ${move==="O"?"selected":""}`} onClick={()=>selectedMove("O")}>O</div>
+        <div className="buttonContainer">
+        <div className={`x size ${move==="X"?"selected":""}`}  onClick={()=>selectedMove("X")} >X</div>
+        <div className={`o size ${move==="O"?"selected":""}`} onClick={()=>selectedMove("O")}>O</div>
         </div>
         <div className="players">
           <input placeholder={names[1]===""?"Enter first player name":"enter your name"} onChange={handelname1}/> 

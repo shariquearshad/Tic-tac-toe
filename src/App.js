@@ -21,6 +21,11 @@ function App() {
     copynames[1]=newname;
     setNames(copynames);
     
+    
+  }
+  const setToInitial=()=>{
+    setNames(["",""])
+    setFirstMove("X")
   }
 
   return (
@@ -34,7 +39,7 @@ function App() {
          <PicSide handelClick={chooseside} names={names}/>
          </Route>
       <Route path='/game'>
-        <Game name1={names[0]} name2={names[1]} firstmove={firstMove}/>
+        <Game handelExit={setToInitial} name1={names[0]} name2={names[1]} firstmove={firstMove} />
         </Route>
       </Switch>
 

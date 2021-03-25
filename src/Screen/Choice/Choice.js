@@ -14,10 +14,10 @@ export default function Choice(props){
 
     
     return (
-        <div className="choice">
+        <div className="card">
            <div className="imageContainer">
-               <div className="x"onClick={()=>selectedMove("X")} >X</div>
-               <div className="o" onClick={()=>selectedMove("O")}>O</div></div>
+               <div className="x size"onClick={()=>selectedMove("X")} >X</div>
+               <div className="o size" onClick={()=>selectedMove("O")}>O</div></div>
            <div className="optionHeading">choose your play mode</div>
            <div className="buttonContainer">
                <Link to="/side">
